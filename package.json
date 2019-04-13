@@ -1,0 +1,19 @@
+{
+  "name": "cal",
+  "version": "1.0.0",
+  "description": "Interactive Calendar",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \\\"Error: no test specified\\\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ctierney24/Calendar.git"
+  },
+  "author": "ctierney",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ctierney24/Calendar/issues"
+  },
+  "homepage": "https://github.com/ctierney24/Calendar#readme"
+}
