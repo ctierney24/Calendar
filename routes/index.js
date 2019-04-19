@@ -1,8 +1,9 @@
 var express = require('express');
 var router = express.Router();
-
+var DB = require('../db.js');
 /* GET home page. */
 router.get('/', function(req, res, next) {
+
   res.render('index', { title: 'jsCalendar w/ Express' });
 });
 
@@ -40,6 +41,13 @@ router.get('/loadCal', function(req, res){
 
 });
 
+router.get('/connDB', function(req, res){
+  var dbTest = new DB;
+  var urlM = "mongodb+srv://dev1:pwrd123@cluster1-sp57y.mongodb.net/test?retryWrites=true"
+  dbTest.connect(urlM);
+
+  dbTest.close();
+});
 
 
 module.exports = router;
