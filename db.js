@@ -3,7 +3,7 @@ var MongoClient = require('mongodb').MongoClient;
 
 
 function DB() {
-  this.db = null;
+  this.client = null;
 }
 
 DB.prototype.connect = function (url) {
@@ -20,9 +20,8 @@ DB.prototype.connect = function (url) {
       .then(
         function(database){
           //store conn as part of DB object
-          __this.db=database;
+          __this.client=database;
           //request complete, no params passed back
-          console.log("DB connected");
           resolve();
         },
         function(err){
@@ -47,8 +46,8 @@ DB.prototype.close = function() {
     // but then move on. This method returns nothing – the caller can fire
     // and forget.
 
-    if (this.db) {
-        this.db.close()
+    if (this.client) {
+        this.client.close()
         .then(
             function() {},
             function(error) {

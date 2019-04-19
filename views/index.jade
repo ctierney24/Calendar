@@ -78,25 +78,19 @@ block content
         th Friday
         th Saturday
     tbody#calBody
-      -console.log("Above Script");
-      -console.log(days);
-      -console.log(typeof days);
-
       -if ((typeof days) !== 'undefined'){
-      -console.log("in script, arr defined");
       -var calDays=days;
       -for (let i=0; i<=5; i++){
-      -console.log("in outer loop");
       tr
       -for(let j=0; j<7; j++){
       -if (calDays[i]!=null){
-      -console.log(calDays[i][j]);
       -var thisDay=calDays[i][j];
         td #{thisDay}
       -}
       -};
       -};
       -}
-      -else{console.log('Arr undef');}
-  form#testDB(method='GET' action='/connDB')
-    button(type='submit') Conn DB
+      -}
+  br
+  form#addEvent(method='GET' action='/eventRedir')
+    button(type='submit') Add Event
