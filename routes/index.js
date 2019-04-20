@@ -60,15 +60,36 @@ router.get('/eventRedir', function(req, res){
   res.end();
   })
 
+router.get('/getAll', function(req, res){
+  var mClient= new DB;
+
+  mClient.connect(urlM)
+  .then(
+      function(){
+
+        var dbCal=mClient.client.db(dbName);
+        var allEvents = dbCal.collection('events').find({}).forEach(function(doc){
+          console.log(doc);
+        });
+        mClient.close();
+        res.render('index');
+    },
+    function(err){
+      console.log('Failed to connect to DB: '+ err);
+      console.log(dbCal);
+      mClient.close();
+    }
+  );
+})
 
 
 
 router.post('/createEvent', function(req, res){
   var mClient = new DB;
-  var name = req.param.eventName,
-      day = req.param.dayList,
-      month = req.param.monthList,
-      year = req.param.yearList;
+  var name = req.body.eventName,
+      day = req.body.dayList,
+      month = req.body.monthList,
+      year = req.body.yearList;
 
 
   mClient.connect(urlM)

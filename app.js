@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var bodyParser = require('body-parser');
 
 var urlM = "mongodb+srv://dev1:<pwrd123>@cluster1-sp57y.mongodb.net/test?retryWrites=true"
 
@@ -20,7 +21,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(bodyParser());
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
