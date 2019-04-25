@@ -9,5 +9,15 @@ a {
 
 table {
   table-layout: auto;
-  width: 100;
+  width: 200;
+}
+
+td {
+  height: 100px;
+  width: 100px;
+  vertical-align: top;
+}
+
+caption {
+  font: 36px "Lucida Grande", Helvetica, Arial, sans-serif;
 }

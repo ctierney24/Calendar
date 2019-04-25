@@ -1,7 +1,6 @@
 extends layout
 
 block content
-  include head.jade
   br
   //Month and Year selections
   form#goCal(method='GET' action='/loadCal')
@@ -68,6 +67,7 @@ block content
   br
 
   table(border = '1')#Calendar
+    caption #{month} #{year}
     thead
       tr
         th Sunday
@@ -78,14 +78,18 @@ block content
         th Friday
         th Saturday
     tbody#calBody
-      -if ((typeof days) !== 'undefined'){
+    -if ((typeof days) !== 'undefined'){
       -var calDays=days;
       -for (let i=0; i<=5; i++){
       tr
       -for(let j=0; j<7; j++){
-      -if (calDays[i]!=null){
+      -if ((calDays[i][j])!==undefined && (calDays[i][j])!==null ){
       -var thisDay=calDays[i][j];
-        td #{thisDay}
+        td #{thisDay.date.getDate()} #{thisDay.getEvent()}
+          p #{thisDay.getDeets()}
+      -}
+      -else{
+        td
       -}
       -};
       -};
