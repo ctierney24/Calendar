@@ -70,7 +70,6 @@ router.get('/loadCal', function(req, res){
       mClient.close();
       //console.log(days);
       //render index.js passing array of days
-      console.log(days);
       res.render('index', {month:monthNames[selMonth], year:selYear, days: days});
 
       },
@@ -148,9 +147,9 @@ router.post('/createEvent', function(req, res){
     function(){
       mClient.close();
       if ((typeof days) !== 'undefined'){
-        res.render('index', {title: 'jsCalendar w/ Express', days: days});
+        res.render('index', {title: 'jsCalendar w/ Express', days: days, month:monthNames[month], year:year});
       }else{
-        res.render('index', {title: 'Added Event'});
+        res.render('index', {title: 'Added Event', month:monthNames[month], year:year});
       }
       res.end();
     }

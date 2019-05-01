@@ -1,5 +1,6 @@
 extends layout
 
+
 block content
   br
   //Month and Year selections
@@ -78,7 +79,7 @@ block content
         th Friday
         th Saturday
     tbody#calBody
-    -if ((typeof days) !== 'undefined'){
+    -if (((typeof days) !== 'undefined')){
       -var calDays=days;
       -for (let i=0; i<=5; i++){
       tr
