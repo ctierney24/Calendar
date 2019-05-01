@@ -67,34 +67,22 @@ block content
 
   br
 
-  table(border = '1')#Calendar
-    caption #{month} #{year}
-    thead
-      tr
-        th Sunday
-        th Monday
-        th Tuesday
-        th Wednesday
-        th Thursday
-        th Friday
-        th Saturday
-    tbody#calBody
-    -if (((typeof days) !== 'undefined')){
-      -var calDays=days;
-      -for (let i=0; i<=5; i++){
-      tr
-      -for(let j=0; j<7; j++){
-      -if ((calDays[i][j])!==undefined && (calDays[i][j])!==null ){
-      -var thisDay=calDays[i][j];
-        td #{thisDay.date.getDate()} #{thisDay.getEvent()}
-          p #{thisDay.getDeets()}
-      -}
-      -else{
-        td
-      -}
-      -};
-      -};
-      -}
+  //Calendar
+  div(class='week')
+    div(class'day-header') Sunday
+    div(class'day-header') Monday
+    div(class'day-header') Tuesday
+    div(class'day-header') Wednesday
+    div(class'day-header') Thursday
+    div(class'day-header') Friday
+    div(class'day-header') Saturday
+
+  div(class='week')
+    div(class='day')
+      h2(class='day-label') 1
+      div(class='event' data-span='2') Class
+      div(class='event') Event
+
   br
   form#addEvent(method='GET' action='/eventRedir')
     button(type='submit') Add Event

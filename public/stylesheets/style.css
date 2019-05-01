@@ -2,21 +2,15 @@ body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
+ .week {
+   display: grid;
+   grid-template-columns: repeat(7, 1fr);
+   grid-gap: 10px;
+   grid-auto-flow: dense;
+   background-color: #fff;
+   color: #444;
+ }
 
-a {
-  color: #00B7FF;
-}
-
-table {
-  table-layout: auto;
-}
-
-td {
-  height: 100px;
-  width: 100px;
-  vertical-align: top;
-}
-
-caption {
-  font: 36px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
+ .day-label {
+   grid-row-start: 1;
+ }
