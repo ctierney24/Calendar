@@ -77,14 +77,17 @@ block content
     div(class'day-header') Friday
     div(class'day-header') Saturday
   -if ((typeof days) !== 'undefined'){
+  -var calDays=days;
   -for(let i=0; i<5; i++){
   div(class='week')
     -for(let j=0; j<7; j++){
-    if
-    -var thisDay=days[i][j];
-    div(class='day')
-      h2(class='day-label') #{j+1}
-    -};
+    -if ((calDays[i][j])!==undefined && (calDays[i][j])!==null ){
+    -var thisDay=calDays[i][j];
+    div(class='day' style="grid-column:#{thisDay.date.getDay()+1}")
+      h2(class='day-label') #{thisDay.date.getDate()}
+      p(class='event-title') #{thisDay.getEvent()}
+      p(class='event-details') #{thisDay.getDeets()}
+    -}};
   -};
   -}
   br

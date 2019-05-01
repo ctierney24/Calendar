@@ -7,12 +7,16 @@ body {
    grid-template-columns: repeat(7, 1fr);
    grid-gap: 10px;
    grid-auto-flow: dense;
-   background-color: #fff;
-   color: #444;
  }
  .day{
-
+   display:grid;
  }
  .day-label {
    grid-row-start: 1;
  }
+.event-title{
+  grid-row-start:2;
+}
+.event-details{
+  grid-row-start:3;
+}
