@@ -76,13 +76,17 @@ block content
     div(class'day-header') Thursday
     div(class'day-header') Friday
     div(class'day-header') Saturday
-
+  -if ((typeof days) !== 'undefined'){
+  -for(var i=0; i<5, i++){
   div(class='week')
+    -for(var j=0; j<7; j++){
     div(class='day')
-      h2(class='day-label') 1
-      div(class='event' data-span='2') Class
+      h2(class='day-label') #{j+1}
+      div(class='event' data-span='1') Event
       div(class='event') Event
-
+  -};
+  -};
+  -}
   br
   form#addEvent(method='GET' action='/eventRedir')
     button(type='submit') Add Event
