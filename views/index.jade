@@ -77,14 +77,14 @@ block content
     div(class'day-header') Friday
     div(class'day-header') Saturday
   -if ((typeof days) !== 'undefined'){
-  -for(var i=0; i<5, i++){
+  -for(let i=0; i<5; i++){
   div(class='week')
-    -for(var j=0; j<7; j++){
+    -for(let j=0; j<7; j++){
+    if
+    -var thisDay=days[i][j];
     div(class='day')
       h2(class='day-label') #{j+1}
-      div(class='event' data-span='1') Event
-      div(class='event') Event
-  -};
+    -};
   -};
   -}
   br
